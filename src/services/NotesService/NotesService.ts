@@ -7,7 +7,7 @@
 } from './interfaces/NotesService.interface';
 import Note from './interfaces/Note';
 
-const url = 'http://localhost:3000/prod';
+const url = process.env.REACT_APP_API_URL;
 const headers = {
     'Content-Type': 'application/json',
     'app_user_id': 'test_user',
@@ -25,12 +25,7 @@ class NotesService implements INotesService {
                 }
             })
         });
-        const result = await response.json();
-        if (!response.ok) {
-            throw new Error(result.message);
-        }
-
-        return result;
+        return await response.json();
     }
 
     async deleteNote(request: DeleteNoteRequest): Promise<void> {
@@ -50,22 +45,12 @@ class NotesService implements INotesService {
     }
 
     async getNotes(request: GetNotesRequest): Promise<Note[]> {
-        try {
-            const response = await fetch(`${url}/notes`, {
-                method: 'GET',
-                headers: headers,
-            });
+        const response = await fetch(`${url}/notes`, {
+            method: 'GET',
+            headers: headers,
+        });
 
-            const result = await response.json();
-            if (!response.ok) {
-                throw new Error(result.message);
-            }
-
-            return result;
-        } catch (error) {
-            console.log({error})
-            return [];
-        }
+        return await response.json();
     }
 
     async updateNote(request: UpdateNoteRequest): Promise<Note> {
