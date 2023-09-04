@@ -1,4 +1,4 @@
-﻿import Container from '@mui/material/Container';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import * as React from 'react';
 import Note from '../../services/NotesService/interfaces/Note';

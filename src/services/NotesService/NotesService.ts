@@ -1,4 +1,4 @@
-﻿import INotesService, {
+import INotesService, {
     CreateNoteRequest,
     DeleteNoteRequest,
     GetNoteByIdRequest,

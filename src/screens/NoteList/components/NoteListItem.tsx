@@ -1,4 +1,4 @@
-﻿import Note from '../../../services/NotesService/interfaces/Note';
+import Note from '../../../services/NotesService/interfaces/Note';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActions from '@mui/material/CardActions';
